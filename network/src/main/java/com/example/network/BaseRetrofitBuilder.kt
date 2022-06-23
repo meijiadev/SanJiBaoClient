@@ -1,12 +1,13 @@
-package com.example.base
+package com.example.network
 
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val CALL_TIME_OUT=8L
-private const val BASE_URL="https://wanandroid.com"
+private const val BASE_URL="http://124.71.223.195:9900/"
 abstract class BaseRetrofitBuilder {
     private val okhttpClient:OkHttpClient by lazy {
         val builder=OkHttpClient.Builder()
@@ -15,6 +16,8 @@ abstract class BaseRetrofitBuilder {
             .readTimeout(CALL_TIME_OUT,TimeUnit.SECONDS)
             .writeTimeout(CALL_TIME_OUT,TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
+        initLoggingInterceptor()
+        handlerOkhttpClientBuilder(builder)
         builder.build()
     }
 
@@ -33,6 +36,16 @@ abstract class BaseRetrofitBuilder {
      * 内联函数
      */
     inline fun <reified T> create():T=create(T::class.java)
+
+    /**
+     *子类自定义OkHttpClient
+     */
+    abstract fun handlerOkhttpClientBuilder(builder:OkHttpClient.Builder)
+
+    /**
+     *配置日志拦截器
+     */
+    abstract fun initLoggingInterceptor():Interceptor?
 
 
 }
