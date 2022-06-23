@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">architecture</string>
+
+    <!-- 状态布局 -->
+    <string name="status_layout_no_data">空空如也</string>
+    <string name="status_layout_error_request">请求出错，请重试</string>
+    <string name="status_layout_error_network">网络错误，请重试</string>
+    <string name="status_layout_retry">重试</string>
+    <!-- 通用的 -->
+    <string name="common_loading">loading&#8230;</string>
+</resources>
