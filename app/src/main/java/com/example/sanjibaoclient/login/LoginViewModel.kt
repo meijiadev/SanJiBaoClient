@@ -2,6 +2,7 @@ package com.example.sanjibaoclient.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
+import com.example.architecture.viewmodel.BaseViewModel
 import com.example.sanjibaoclient.network.Repository
 import com.kunminx.architecture.ui.callback.UnPeekLiveData
 
@@ -11,7 +12,7 @@ import com.kunminx.architecture.ui.callback.UnPeekLiveData
  *    time   : 2022/06/23
  *    desc   : 登录页面的viewModel
  */
-class LoginViewModel :ViewModel() {
+class LoginViewModel :BaseViewModel() {
     /**
      * 登陆点击事件
      */
@@ -22,8 +23,7 @@ class LoginViewModel :ViewModel() {
     private var password:String=""
 
     val loginLiveData=loginAction.switchMap {
-
-        Repository.login(userName,password)
+        Repository.login("root","Admin12#")
     }
 
     /**

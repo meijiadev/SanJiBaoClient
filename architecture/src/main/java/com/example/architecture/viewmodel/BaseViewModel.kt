@@ -18,7 +18,6 @@ import com.lingdu.arphakids.ext.logI
 open class BaseViewModel :ViewModel(),LifecycleOwner, ToastAction {
 
 
-    @SuppressLint("StaticFieldLeak")
     private  val mRegistry:LifecycleRegistry = LifecycleRegistry(this)
 
     init {

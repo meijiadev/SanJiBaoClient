@@ -36,5 +36,5 @@ class EmptyResponse<T>(): ApiResponse<T>()
 /**
  *返回错误的处理体
  */
-data class FailureResponse<T>(override val exception: RequestException?): ApiResponse<T>(exception=exception)
+data class FailureResponse<T>(override val exception: RequestException): ApiResponse<T>(exception=exception)
 
