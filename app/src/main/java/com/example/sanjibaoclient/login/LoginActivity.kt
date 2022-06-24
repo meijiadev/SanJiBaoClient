@@ -1,8 +1,12 @@
 package com.example.sanjibaoclient.login
 
 import com.example.architecture.ui.activity.BaseVmDbActivity
+import com.example.network.ext.observerState
 import com.example.sanjibaoclient.R
 import com.example.sanjibaoclient.databinding.ActivityLoginBinding
+import com.hjq.gson.factory.GsonFactory
+import com.lingdu.arphakids.ext.logI
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  *  author: MJ
@@ -18,7 +22,28 @@ class LoginActivity : BaseVmDbActivity<LoginViewModel,ActivityLoginBinding>() {
     }
 
     override fun initData() {
-        mViewModel.loginLiveData.observe(this){
+        mViewModel.loginLiveData.observerState(this){
+            onStart {
+                logI("开始请求")
+            }
+            onSuccess {
+                logI("result:$it")
+                mViewModel.token="${it.tokenType} ${it.token}"
+            }
+
+            onFailure {
+                logI("请求失败:${it.toString()}")
+            }
+
+        }
+
+        mViewModel.logoutData.observerState(this){
+            onSuccess {
+                logI("权限列表：$"+it.size)
+            }
+            onFailure {
+                logI("请求失败:${it.toString()}")
+            }
         }
     }
 

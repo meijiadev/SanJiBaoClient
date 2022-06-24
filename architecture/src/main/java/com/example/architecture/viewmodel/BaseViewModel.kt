@@ -15,23 +15,14 @@ import com.lingdu.arphakids.ext.logI
  *    time   : 2022/02/25
  *    desc   : BaseViewModel
  */
-open class BaseViewModel :ViewModel(),LifecycleOwner, ToastAction {
+open class BaseViewModel :ViewModel(), ToastAction {
 
-
-    private  val mRegistry:LifecycleRegistry = LifecycleRegistry(this)
-
-    init {
-        mRegistry.currentState=Lifecycle.State.CREATED
-    }
 
     override fun onCleared() {
         super.onCleared()
-        mRegistry.currentState=Lifecycle.State.DESTROYED
-        logI("销毁${this.javaClass.simpleName}")
+
     }
-    override fun getLifecycle(): Lifecycle {
-        return mRegistry
-    }
+
 
     /**
      * 手动清除内存中的数据

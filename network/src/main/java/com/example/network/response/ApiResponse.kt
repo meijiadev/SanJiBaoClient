@@ -1,6 +1,7 @@
 package com.example.network.response
 
 import com.example.network.exception.RequestException
+import java.io.Serializable
 
 /**
  * @desc:请求结果
@@ -9,13 +10,13 @@ import com.example.network.exception.RequestException
  */
 open class ApiResponse<T>(
     override val data: T?=null,
-    override val errorCode: Int?=null,
-    override val errorMsg: String?=null,
+    override val code: Int?=null,
+    override val message: String?=null,
     open val exception: RequestException?=null
 
-): BaseResponse<T>(){
+): BaseResponse<T>(),Serializable{
     override val getSuccess: Boolean
-        get() = errorCode==200
+        get() = code==200
 }
 
 /**

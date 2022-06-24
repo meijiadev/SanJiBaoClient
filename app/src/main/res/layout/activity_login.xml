@@ -17,13 +17,23 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btLogin"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_40"
+            android:layout_height="@dimen/dp_60"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="登录"
             android:onClick="@{()->loginModel.login()}"
             />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btLogin"
+            android:text="退出登录"
+            android:onClick="@{()->loginModel.logout()}"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

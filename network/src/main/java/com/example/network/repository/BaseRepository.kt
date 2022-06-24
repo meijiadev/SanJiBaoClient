@@ -5,6 +5,8 @@ import androidx.lifecycle.liveData
 import com.example.network.exception.RequestException
 import com.example.network.exception.handleException
 import com.example.network.response.*
+import com.lingdu.arphakids.ext.logI
+import com.lingdu.arphakids.ext.loge
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext
 
@@ -17,7 +19,7 @@ import kotlin.coroutines.CoroutineContext
 abstract class BaseRepository {
 
     /**
-     * 请求数据
+     * 请求数据，并且对数据进行整理过滤
      */
     fun <T> request(
         context: CoroutineContext = Dispatchers.IO,
@@ -30,6 +32,7 @@ abstract class BaseRepository {
             block()
         }.onSuccess {
             // 网络请求成功
+            logI("网络请求成功：${it.code}")
             emit(
                 when (it.getSuccess) {
                     // 返回值错误
@@ -40,6 +43,7 @@ abstract class BaseRepository {
             )
         }.onFailure {
             // 网络请求错误
+            loge("网络请求错误：${it.message}")
             emit(FailureResponse(handleException(it)))
         }
     }

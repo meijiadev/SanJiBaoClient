@@ -10,7 +10,26 @@ import com.example.network.repository.BaseRepository
  */
 object Repository : BaseRepository() {
 
+    /**
+     * 登录
+     */
     fun login(name:String,pw:String)=request {
         NetworkDataSource.login(name,pw)
     }
+
+    /**
+     * 退出登录
+     */
+    fun logout(token:String)=request {
+        NetworkDataSource.logout(token)
+    }
+
+    /**
+     * 获取用户权限信息
+     */
+    fun getUserPermission(token: String)=request {
+        NetworkDataSource.getUserPermission(token)
+    }
+
+
 }

@@ -15,9 +15,9 @@ class RequestException(
     val error:String?=null
 ) :Exception(){
     constructor(response: BaseResponse<*>):this(
-        response.errorCode,
-        response.errorMsg,
-        response.errorMsg
+        response.code,
+        response.message,
+        response.message
     )
 
     constructor(httpError: HttpError, error: String?):this(
@@ -26,5 +26,9 @@ class RequestException(
         error
     )
 
-
+    override fun toString(): String {
+        return "code:$code \n" +
+                "errorMsg:$errorMsg \n"+
+                "error:$error"
+    }
 }

@@ -16,7 +16,9 @@ abstract class BaseRetrofitBuilder {
             .readTimeout(CALL_TIME_OUT,TimeUnit.SECONDS)
             .writeTimeout(CALL_TIME_OUT,TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
-        initLoggingInterceptor()
+        initLoggingInterceptor()?.also {
+            builder.addInterceptor(it)
+        }
         handlerOkhttpClientBuilder(builder)
         builder.build()
     }

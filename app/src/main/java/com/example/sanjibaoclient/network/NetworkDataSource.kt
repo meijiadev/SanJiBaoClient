@@ -1,6 +1,7 @@
 package com.example.sanjibaoclient.network
 
 import com.example.network.RetrofitBuilder
+import com.example.sanjibaoclient.login.LoginRequestBody
 
 
 /**
@@ -10,9 +11,13 @@ import com.example.network.RetrofitBuilder
  */
 object NetworkDataSource {
 
-    private val apiService: ApiService =RetrofitBuilder.create(ApiService::class.java)
+    private val apiService=RetrofitBuilder.create<ApiService>()
 
-    suspend fun login(username:String,password:String) = apiService.login(username,password)
+    suspend fun login(username:String,password:String) = apiService.login(LoginRequestBody(username, password))
+
+    suspend fun logout(token:String)= apiService.logout(token)
+
+    suspend fun getUserPermission(token: String) = apiService.getUserPermission(token)
 
 
 

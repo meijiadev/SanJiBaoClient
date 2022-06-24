@@ -5,6 +5,7 @@ import androidx.lifecycle.switchMap
 import com.example.architecture.viewmodel.BaseViewModel
 import com.example.sanjibaoclient.network.Repository
 import com.kunminx.architecture.ui.callback.UnPeekLiveData
+import com.lingdu.arphakids.ext.logI
 
 
 /**
@@ -18,12 +19,23 @@ class LoginViewModel :BaseViewModel() {
      */
     private val loginAction=UnPeekLiveData<Boolean>()
 
+    /**
+     * 退出登录
+     */
+    private val logoutAction =UnPeekLiveData<Boolean>()
+
     private var userName:String=""
 
     private var password:String=""
 
+    var token:String=" "
+
     val loginLiveData=loginAction.switchMap {
         Repository.login("root","Admin12#")
+    }
+
+    val logoutData=logoutAction.switchMap {
+        Repository.getUserPermission(token)
     }
 
     /**
@@ -31,6 +43,10 @@ class LoginViewModel :BaseViewModel() {
      */
     fun login(){
         loginAction.value=true
+    }
+
+    fun logout(){
+        logoutAction.value=true
     }
 
 }
