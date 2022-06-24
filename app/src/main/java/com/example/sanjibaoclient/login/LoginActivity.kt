@@ -3,6 +3,7 @@ package com.example.sanjibaoclient.login
 import com.example.architecture.ui.activity.BaseVmDbActivity
 import com.example.network.ext.observerState
 import com.example.sanjibaoclient.R
+import com.example.sanjibaoclient.app.AppVmDbActivity
 import com.example.sanjibaoclient.databinding.ActivityLoginBinding
 import com.hjq.gson.factory.GsonFactory
 import com.lingdu.arphakids.ext.logI
@@ -13,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  *  desc: 登录页面
  *  time: 2022/06/23
  */
-class LoginActivity : BaseVmDbActivity<LoginViewModel,ActivityLoginBinding>() {
+class LoginActivity : AppVmDbActivity<LoginViewModel,ActivityLoginBinding>() {
 
     override fun layoutId(): Int = R.layout.activity_login
 

@@ -4,9 +4,7 @@ import com.example.network.response.ApiResponse
 import com.example.sanjibaoclient.login.LoginData
 import com.example.sanjibaoclient.login.LoginRequestBody
 import com.example.sanjibaoclient.login.PermissionData
-import com.example.sanjibaoclient.login.PermissionDto
 import retrofit2.http.*
-
 
 /**
  *    author : MJ
@@ -40,6 +38,8 @@ interface ApiService {
         @Header("token")
         token: String
     ): ApiResponse<List<PermissionData>>
+
+
 
 
 }

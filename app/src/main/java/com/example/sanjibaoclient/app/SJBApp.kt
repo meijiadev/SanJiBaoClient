@@ -1,4 +1,4 @@
-package com.example.sanjibaoclient
+package com.example.sanjibaoclient.app
 
 import com.example.architecture.BaseApplication
 import com.orhanobut.logger.*
