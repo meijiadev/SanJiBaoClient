@@ -1,6 +1,7 @@
 package com.example.sanjibaoclient.app
 
 import com.example.architecture.BaseApplication
+import com.example.sanjibaoclient.constants.AppConfig
 import com.orhanobut.logger.*
 
 
@@ -16,7 +17,7 @@ class SJBApp :BaseApplication() {
     }
 
     private fun initSdk(){
-        if (BuildConfig.DEBUG) {
+        if (AppConfig.isLogEnable()) {
             val formatStrategy= PrettyFormatStrategy
                 .newBuilder()
                 .showThreadInfo(false)

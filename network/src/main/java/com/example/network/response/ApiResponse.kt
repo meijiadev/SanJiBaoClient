@@ -14,7 +14,7 @@ open class ApiResponse<T>(
     override val message: String?=null,
     open val exception: RequestException?=null
 
-): BaseResponse<T>(),Serializable{
+): BaseResponse<T>(){
     override val getSuccess: Boolean
         get() = code==200
 }

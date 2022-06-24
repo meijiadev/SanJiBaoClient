@@ -1,14 +1,10 @@
-package com.example.sanjibaoclient.login
-
-import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+package com.example.sanjibaoclient.data
 
 
 /**
  *    author : MJ
  *    time   : 2022/06/24
- *    desc   : 权限信息列表
+ *    desc   : 用户权限信息列表
  */
 data class PermissionData(
     val name: String,

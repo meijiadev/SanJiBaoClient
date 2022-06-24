@@ -7,7 +7,7 @@ import java.io.Serializable
  * @author Mj
  * @time 2022/06/23
  */
-abstract class BaseResponse<T>:Serializable {
+abstract class BaseResponse<T> {
     abstract val getSuccess: Boolean
     abstract val data: T?
     abstract val code: Int?

@@ -1,5 +1,8 @@
-package com.example.sanjibaoclient.login
+package com.example.sanjibaoclient.data
 
+/**
+ * 登录返回信息
+ */
 data class LoginData(
     val token: String,
     val tokenType: String,
