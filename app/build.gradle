@@ -104,4 +104,7 @@ dependencies {
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
      // kotlin扩展（可选）
     implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+    // 二维码扫码
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
 }

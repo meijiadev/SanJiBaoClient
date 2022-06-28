@@ -26,7 +26,6 @@ abstract class AppVmDbActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbAc
         }
     }
 
-
     /**
      * 是否使用沉浸式状态栏
      */
