@@ -1,4 +1,4 @@
-package com.example.sanjibaoclient.data
+package com.example.sanjibaoclient.data.response
 
 
 /**

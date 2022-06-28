@@ -4,7 +4,7 @@ package com.example.network.exception
 /**
  *    author : MJ
  *    time   : 2022/06/23
- *    desc   : 错误码以及含义处理
+ *    desc   : 业务层错误码以及含义处理
  */
 enum class HttpError(val code:Int,val errorMsg:String) {
     UNKONW(-100,"未知错误"),

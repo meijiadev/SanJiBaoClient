@@ -2,8 +2,8 @@ package com.example.sanjibaoclient.network
 
 import com.example.network.response.ApiResponse
 import com.example.sanjibaoclient.data.LoginData
-import com.example.sanjibaoclient.login.LoginRequestBody
-import com.example.sanjibaoclient.data.PermissionData
+import com.example.sanjibaoclient.data.request.LoginRequestBody
+import com.example.sanjibaoclient.data.response.PermissionData
 import retrofit2.http.*
 
 /**

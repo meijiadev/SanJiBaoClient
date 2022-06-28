@@ -1,7 +1,7 @@
 package com.example.sanjibaoclient.network
 
 import com.example.network.RetrofitBuilder
-import com.example.sanjibaoclient.login.LoginRequestBody
+import com.example.sanjibaoclient.data.request.LoginRequestBody
 
 
 /**
