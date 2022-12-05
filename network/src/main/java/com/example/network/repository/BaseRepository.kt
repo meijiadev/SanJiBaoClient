@@ -35,7 +35,7 @@ abstract class BaseRepository {
             logI("网络请求成功：${it.code}")
             emit(
                 when (it.getSuccess) {
-                    // 返回值错误
+                    // 返回值正确
                     true -> checkEmptyResponse(it.data)
                     // 返回值失败
                     false-> FailureResponse(handleException(RequestException(it)))

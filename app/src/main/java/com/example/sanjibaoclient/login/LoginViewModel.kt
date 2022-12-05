@@ -24,29 +24,39 @@ class LoginViewModel :BaseViewModel() {
      */
     private val logoutAction =UnPeekLiveData<Boolean>()
 
+    /**
+     * 获取账号权限
+     */
+    private val permissionAction=UnPeekLiveData<Boolean>()
+
     private var userName:String=""
 
     private var password:String=""
 
     var token:String=" "
 
+
     val loginLiveData=loginAction.switchMap {
-        Repository.login("root","Admin12#")
+        Repository.login(userName,password)
     }
 
-    val logoutData=logoutAction.switchMap {
+    val reqPerData=permissionAction.switchMap {
         Repository.getUserPermission(token)
+
     }
+
 
     /**
      * 点击去登陆
      */
-    fun login(){
+    fun login(account:String,password:String){
+        userName=account
+        this.password=password
         loginAction.value=true
     }
 
-    fun logout(){
-        logoutAction.value=true
+    fun requestPer(){
+        permissionAction.value=true
     }
 
 }

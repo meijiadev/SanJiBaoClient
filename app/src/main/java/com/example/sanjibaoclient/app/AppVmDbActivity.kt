@@ -22,7 +22,7 @@ abstract class AppVmDbActivity<VM:BaseViewModel,DB:ViewDataBinding> : BaseVmDbAc
         super.init()
         // 初始化沉浸式状态栏
         if (isStatusBarEnabled()) {
-            createStatusBarConfig().init()
+           // createStatusBarConfig().init()
         }
     }
 
